@@ -12,7 +12,7 @@ n = 1.0
 # Inputs (optional sliders so users can change system)
 T_H = st.number_input(
     "Hot Reservoir Temperature (K)",
-    min_value=0,
+    min_value=0.0,
     max_value=1000000.0,
     value=800.0,
     step=10.0
@@ -20,7 +20,7 @@ T_H = st.number_input(
 
 T_C = st.number_input(
     "Cold Reservoir Temperature (K)",
-    min_value=0,
+    min_value=0.0,
     max_value=1000000.0,
     value=300.0,
     step=10.0
