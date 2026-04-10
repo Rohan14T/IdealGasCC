@@ -12,26 +12,26 @@ n = 1.0
 # Inputs (optional sliders so users can change system)
 T_H = st.number_input(
     "Hot Reservoir Temperature (K)",
-    min_value=1.0,
-    max_value=5000.0,
+    min_value=0,
+    max_value=1000000.0,
     value=800.0,
     step=10.0
 )
 
 T_C = st.number_input(
     "Cold Reservoir Temperature (K)",
-    min_value=1.0,
-    max_value=3000.0,
+    min_value=0,
+    max_value=1000000.0,
     value=300.0,
     step=10.0
 )
 
 V_A_L = st.number_input(
     "Initial Volume A (L)",
-    min_value=0.001,
-    max_value=100.0,
+    min_value=0.00001,
+    max_value=100000.0,
     value=1.0,
-    step=0.1
+    step=1.0
 )
 
 # Convert L → m^3
