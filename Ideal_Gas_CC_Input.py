@@ -10,10 +10,29 @@ gamma = 5/3  # monatomic gas
 n = 1.0
 
 # Inputs (optional sliders so users can change system)
-T_H = st.slider("Hot Reservoir Temperature (K)", 0, 10000, 600)
-T_C = st.slider("Cold Reservoir Temperature (K)", 0, 10000, 300)
+T_H = st.number_input(
+    "Hot Reservoir Temperature (K)",
+    min_value=1.0,
+    max_value=5000.0,
+    value=800.0,
+    step=10.0
+)
 
-V_A_L = st.slider("Initial Volume A (L)", 0, 5000, 10)
+T_C = st.number_input(
+    "Cold Reservoir Temperature (K)",
+    min_value=1.0,
+    max_value=3000.0,
+    value=300.0,
+    step=10.0
+)
+
+V_A_L = st.number_input(
+    "Initial Volume A (L)",
+    min_value=0.001,
+    max_value=100.0,
+    value=1.0,
+    step=0.1
+)
 
 # Convert L → m^3
 V_A = V_A_L * 1e-3
