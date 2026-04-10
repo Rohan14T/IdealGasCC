@@ -26,19 +26,14 @@ T_C = st.number_input(
     step=10.0
 )
 
-V_A_L = st.number_input(
-    "Initial Volume A (L)",
-    min_value=0.00001,
-    max_value=100000.0,
-    value=1.0,
-    step=1.0
-)
+V_A_L = st.number_input("Volume A (L)", min_value=0.001, max_value=100.0, value=1.0, step=0.1)
+V_B_L = st.number_input("Volume B (L)", min_value=0.001, max_value=100.0, value=2.0, step=0.1)
 
 # Convert L → m^3
 V_A = V_A_L * 1e-3
-
+V_B = V_B_L * 1e-3
 # --- Step 1: Isothermal expansion (A→B, T_H)
-V_B = 2 * V_A
+
 V1 = np.linspace(V_A, V_B, 100)
 P1 = n * R * T_H / V1
 
