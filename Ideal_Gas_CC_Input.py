@@ -52,3 +52,49 @@ ax.grid(True)
 ax.legend()
 
 st.pyplot(fig)
+
+import pandas as pd
+
+# Ideal gas law: P = nRT / V
+n = 1.0
+
+# Define key state points
+states = {
+    "A (start)": {
+        "T": T_H,
+        "V": V_A,
+    },
+    "B (after isothermal expansion)": {
+        "T": T_H,
+        "V": V_B,
+    },
+    "C (after adiabatic expansion)": {
+        "T": T_C,
+        "V": V_C,
+    },
+    "D (after isothermal compression)": {
+        "T": T_C,
+        "V": V_D,
+    }
+}
+
+# Compute pressures
+for key in states:
+    T = states[key]["T"]
+    V = states[key]["V"]
+    P = n * R * T / V
+    states[key]["P"] = P
+
+# Convert to DataFrame
+df = pd.DataFrame(states).T
+df = df[["T", "P", "V"]]
+
+# Unit conversions for readability
+df["P (kPa)"] = df["P"] / 1000
+df["V (L)"] = df["V"] * 1000
+
+# Drop raw SI columns if you want cleaner display
+df = df[["T", "P (kPa)", "V (L)"]]
+
+st.subheader("State Points (1 mol Ideal Gas)")
+st.dataframe(df)
