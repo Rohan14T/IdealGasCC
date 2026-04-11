@@ -26,8 +26,8 @@ T_C = st.number_input(
     step=10.0
 )
 
-V_A_L = st.number_input("Volume A (L)", min_value=0.001, max_value=100.0, value=1.0, step=0.1)
-V_B_L = st.number_input("Volume B (L)", min_value=0.001, max_value=100.0, value=2.0, step=0.1)
+V_A_L = st.number_input("Volume A (L)", value=1.0, step=0.1)
+V_B_L = st.number_input("Volume B (L)", value=2.0, step=0.1)
 
 # Convert L → m^3
 V_A = V_A_L * 1e-3
